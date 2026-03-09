@@ -42,37 +42,37 @@ public interface Model {
     /**
      * Sets the user prefs' TutorMap file path.
      */
-    void setTutorMapFilePath(Path addressBookFilePath);
+    void setTutorMapFilePath(Path tutorMapFilePath);
 
     /**
-     * Replaces address book data with the data in {@code addressBook}.
+     * Replaces tutormap data with the data in {@code tutormap}.
      */
-    void setAddressBook(ReadOnlyAddressBook addressBook);
+    void setTutorMap(ReadOnlyTutorMap tutorMap);
 
     /** Returns the AddressBook */
-    ReadOnlyAddressBook getAddressBook();
+    ReadOnlyTutorMap getTutorMap();
 
     /**
-     * Returns true if a person with the same identity as {@code person} exists in the address book.
+     * Returns true if a person with the same identity as {@code person} exists in the tutormap.
      */
     boolean hasPerson(Person person);
 
     /**
      * Deletes the given person.
-     * The person must exist in the address book.
+     * The person must exist in the tutormap.
      */
     void deletePerson(Person target);
 
     /**
      * Adds the given person.
-     * {@code person} must not already exist in the address book.
+     * {@code person} must not already exist in the tutormap.
      */
     void addPerson(Person person);
 
     /**
      * Replaces the given person {@code target} with {@code editedPerson}.
-     * {@code target} must exist in the address book.
-     * The person identity of {@code editedPerson} must not be the same as another existing person in the address book.
+     * {@code target} must exist in the tutormap.
+     * The person identity of {@code editedPerson} must not be the same as another existing person in the tutormap.
      */
     void setPerson(Person target, Person editedPerson);
 
