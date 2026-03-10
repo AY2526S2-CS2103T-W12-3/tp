@@ -83,7 +83,10 @@ public class EditPersonDescriptorBuilder {
         return this;
     }
 
-
+    /**
+     * Parses the {@code relations} into a {@code Set<Relation>} and set it to the {@code EditPersonDescriptor}
+     * that we are building.
+     */
     public EditPersonDescriptorBuilder withRelations(String... relations) {
         Set<Relation> relationSet = Stream.of(relations).map(Relation::new).collect(Collectors.toSet());
         descriptor.setRelations(relationSet);

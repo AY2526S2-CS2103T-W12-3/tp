@@ -2,16 +2,19 @@ package seedu.tutor.storage;
 
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonValue;
+
 import seedu.tutor.commons.exceptions.IllegalValueException;
 import seedu.tutor.model.relation.Relation;
 
-
+/**
+ * Jackson-friendly version of {@link Relation}.
+ */
 public class JsonAdaptedRelation {
 
     private final String relationName;
 
     /**
-     * Constructs a {@code JsonAdaptedTag} with the given {@code tagName}.
+     * Constructs a {@code JsonAdaptedRelation} with the given {@code relationName}.
      */
     @JsonCreator
     public JsonAdaptedRelation(String relationName) {
@@ -31,7 +34,7 @@ public class JsonAdaptedRelation {
     }
 
     /**
-     * Converts this Jackson-friendly adapted tag object into the model's {@code Tag} object.
+     * Converts this Jackson-friendly adapted relation object into the model's {@code Relation} object.
      *
      * @throws IllegalValueException if there were any data constraints violated in the adapted tag.
      */

@@ -93,6 +93,9 @@ public class PersonBuilder {
         return this;
     }
 
+    /**
+     * Parses the {@code relations} into a {@code Set<Relation>} and set it to the {@code Person} that we are building.
+     */
     public PersonBuilder withRelations(String ... relations) {
         this.relations = SampleDataUtil.getRelationSet(relations);
         return this;

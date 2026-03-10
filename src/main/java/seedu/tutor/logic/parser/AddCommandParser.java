@@ -1,7 +1,12 @@
 package seedu.tutor.logic.parser;
 
 import static seedu.tutor.logic.Messages.MESSAGE_INVALID_COMMAND_FORMAT;
-import static seedu.tutor.logic.parser.CliSyntax.*;
+import static seedu.tutor.logic.parser.CliSyntax.PREFIX_ADDRESS;
+import static seedu.tutor.logic.parser.CliSyntax.PREFIX_EMAIL;
+import static seedu.tutor.logic.parser.CliSyntax.PREFIX_NAME;
+import static seedu.tutor.logic.parser.CliSyntax.PREFIX_PHONE;
+import static seedu.tutor.logic.parser.CliSyntax.PREFIX_RELATION;
+import static seedu.tutor.logic.parser.CliSyntax.PREFIX_TAG;
 
 import java.util.Set;
 import java.util.stream.Stream;
