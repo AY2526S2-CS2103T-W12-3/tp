@@ -11,7 +11,12 @@ public class RelateAddCommand extends RelateCommand {
 
     public static final String MESSAGE_SUCCESS = "";
 
-    public RelateAddCommand(Index index, Relation relation) {
+    /**
+     * Creates a RelateAddCommand.
+     * This constructor is package-private to restrict creation
+     * to the command factory in {@link RelateCommand}.
+     */
+    RelateAddCommand(Index index, Relation relation) {
         //
     }
 

@@ -11,7 +11,12 @@ public class RelateDeleteCommand extends RelateCommand {
 
     public static final String MESSAGE_SUCCESS = "";
 
-    public RelateDeleteCommand(Index index, Relation relation) {
+    /**
+     * Creates a RelateDeleteCommand.
+     * This constructor is package-private to restrict creation
+     * to the command factory in {@link RelateCommand}.
+     */
+    RelateDeleteCommand(Index index, Relation relation) {
         //
     }
 
