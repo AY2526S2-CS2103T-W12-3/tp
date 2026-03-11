@@ -23,9 +23,9 @@ import seedu.tutor.model.relation.Relation;
  */
 public class RelateCommandParser implements Parser<RelateCommand> {
 
-    private static final Map<Prefix, RelateCommand.RelateType> relateCommandTypeMap = Map.of(
-            PREFIX_RELATE_ADD, RelateCommand.RelateType.ADD,
-            PREFIX_RELATE_DELETE, RelateCommand.RelateType.DELETE
+    private static final Map<Prefix, RelateCommand.RelateCommandType> relateCommandTypeMap = Map.of(
+            PREFIX_RELATE_ADD, RelateCommand.RelateCommandType.ADD,
+            PREFIX_RELATE_DELETE, RelateCommand.RelateCommandType.DELETE
     );
 
     /**

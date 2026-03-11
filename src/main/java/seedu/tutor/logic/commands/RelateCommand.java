@@ -12,7 +12,10 @@ import seedu.tutor.model.relation.Relation;
  */
 public abstract class RelateCommand extends Command {
 
-    public enum RelateType {
+    /**
+     * enum for types of RelateCommand
+     */
+    public enum RelateCommandType {
         ADD, DELETE
     }
 
@@ -34,7 +37,7 @@ public abstract class RelateCommand extends Command {
      * @param relation The relation object between two contacts.
      * @return Subtype of RelateCommand.
      */
-    public static RelateCommand create(Index index, RelateType type, Relation relation) {
+    public static RelateCommand create(Index index, RelateCommandType type, Relation relation) {
         switch (type) {
 
         case ADD -> {
