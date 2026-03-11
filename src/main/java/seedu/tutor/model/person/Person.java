@@ -8,6 +8,7 @@ import java.util.Objects;
 import java.util.Set;
 
 import seedu.tutor.commons.util.ToStringBuilder;
+import seedu.tutor.model.relation.Relation;
 import seedu.tutor.model.tag.Tag;
 
 /**
@@ -25,22 +26,24 @@ public class Person {
     private final Address address;
     private final Set<Tag> tags = new HashSet<>();
     private final String subject;
+    private final Set<Relation> relations = new HashSet<>();
 
     /**
      * Every field must be present and not null.
      */
-    public Person(Name name, Phone phone, Email email, Address address, Set<Tag> tags) {
+    public Person(Name name, Phone phone, Email email, Address address, Set<Tag> tags, Set<Relation> relations) {
         this(name, phone, email, address, tags, "");
     }
 
     public Person(Name name, Phone phone, Email email, Address address, Set<Tag> tags, String subject) {
-        requireAllNonNull(name, phone, email, address, tags, subject);
+        requireAllNonNull(name, phone, email, address, tags, subject, relations);
         this.name = name;
         this.phone = phone;
         this.email = email;
         this.address = address;
         this.tags.addAll(tags);
         this.subject = subject;
+        this.relations.addAll(relations);
     }
 
     public Name getName() {
@@ -67,6 +70,11 @@ public class Person {
      */
     public Set<Tag> getTags() {
         return Collections.unmodifiableSet(tags);
+    }
+
+
+    public Set<Relation> getRelations() {
+        return Collections.unmodifiableSet(relations);
     }
 
     /**
@@ -104,12 +112,13 @@ public class Person {
                 && address.equals(otherPerson.address)
                 && tags.equals(otherPerson.tags)
                 && subject.equals(otherPerson.subject);
+                && relations.equals(otherPerson.relations);
     }
 
     @Override
     public int hashCode() {
         // use this method for custom fields hashing instead of implementing your own
-        return Objects.hash(name, phone, email, address, tags, subject);
+        return Objects.hash(name, phone, email, address, tags, subject, relations);
     }
 
     @Override
@@ -121,6 +130,7 @@ public class Person {
                 .add("address", address)
                 .add("tags", tags)
                 .add("subjects", subject)
+                .add("relations", relations)
                 .toString();
     }
 
