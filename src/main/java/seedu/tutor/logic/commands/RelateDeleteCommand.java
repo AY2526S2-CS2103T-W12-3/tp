@@ -30,6 +30,7 @@ public class RelateDeleteCommand extends RelateCommand {
      * to the command factory in {@link RelateCommand}.
      */
     RelateDeleteCommand(Index index, Relation relationToDelete) {
+        super(relationToDelete, RelateCommandType.DELETE);
         requireNonNull(index);
         requireNonNull(relationToDelete);
 
@@ -40,13 +41,13 @@ public class RelateDeleteCommand extends RelateCommand {
     @Override
     public CommandResult execute(Model model) throws CommandException {
         requireNonNull(model);
-        List<Person> lastShownList = model.getFilteredPersonList();
+        List<Person> persons = model.getTutorMap().getPersonList();
 
-        if (index.getZeroBased() >= lastShownList.size()) {
+        if (index.getZeroBased() >= persons.size()) {
             throw new CommandException(Messages.MESSAGE_INVALID_PERSON_DISPLAYED_INDEX);
         }
 
-        Person personToDeleteRelation = lastShownList.get(index.getZeroBased());
+        Person personToDeleteRelation = persons.get(index.getZeroBased());
 
         // Validate existence of Relation in Person
         Set<Relation> originalRelations = personToDeleteRelation.getRelations();
