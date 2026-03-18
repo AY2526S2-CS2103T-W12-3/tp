@@ -122,18 +122,20 @@ public class RelateCommand extends Command {
         try {
             requireNonNull(index1);
             requireNonNull(index2);
-            RelateCommand command1 = create(index1, this.type, this.relation);
-            RelateCommand command2 = create(index2, this.type, this.relation);
 
-            requireNonNull(command1);
-            requireNonNull(command2);
-            CommandResult result1 = command1.execute(model);
-            CommandResult result2 = command2.execute(model);
-
-            return CommandResult.merge(result1, result2);
         } catch (NullPointerException e) {
             throw new CommandException(Messages.PERSONS_DOES_NOT_EXIST);
         }
+
+        RelateCommand command1 = create(index1, this.type, this.relation);
+        RelateCommand command2 = create(index2, this.type, this.relation);
+
+        requireNonNull(command1);
+        requireNonNull(command2);
+        CommandResult result1 = command1.execute(model);
+        CommandResult result2 = command2.execute(model);
+
+        return CommandResult.merge(result1, result2);
 
     }
 }
