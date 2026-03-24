@@ -21,7 +21,7 @@ public class RelationContainsStringPredicate implements Predicate<Person> {
     public boolean test(Person person) {
         Set<Relation> relations = person.getRelations();
         for (Relation r : relations) {
-            if (r.relationName.toLowerCase().contains(string)) {
+            if (r.relationName.toLowerCase().contains(string) || r.reverseRelationName.toLowerCase().contains(string)) {
                 return true;
             }
         }
