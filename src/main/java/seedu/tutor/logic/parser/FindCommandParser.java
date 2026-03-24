@@ -27,14 +27,14 @@ public class FindCommandParser implements Parser<FindCommand> {
         }
 
         if (trimmedArgs.startsWith("r/")) {
-            System.out.println(trimmedArgs);
-            String[] split = trimmedArgs.split("r/+");
-            if (split.length < 1) {
-                throw new ParseException("Keyword missing! Please specify a keyword after 'r/'"
+            String trimmed = trimmedArgs.substring(2).trim();
+            String slashRegex = "[ /]+$";
+            if (trimmed.isEmpty() || trimmed.matches(slashRegex)) {
+                throw new ParseException("Keyword missing! Please specify a non-space, non-slash keyword after 'r/' \n"
                         + "Example: find r/Alex Yeoh, find r/parent");
             }
 
-            return new FindCommand(new RelationContainsStringPredicate(split[1]));
+            return new FindCommand(new RelationContainsStringPredicate(trimmed));
         }
 
         String[] nameKeywords = trimmedArgs.split("\\s+");
