@@ -15,6 +15,7 @@ TutorMap offers you a simple way to stay organized without complex software. If 
   - [Listing all persons : `list`](#listing-persons)
   - [Editing a person : `edit`](#editing-person)
   - [Locating persons by name: `find`](#finding-persons)
+  - [Locating persons by relation: `find r/`](#finding-persons-by-relation)
   - [Adding or deleting a relation : `relate`](#relating-persons)
   - [Deleting a person : `delete`](#deleting-person)
   - [Clearing all entries : `clear`](#clearing-entries)
@@ -148,6 +149,21 @@ Examples:
 * `find John` returns `john` and `John Doe`
 * `find alex david` returns `Alex Yeoh`, `David Li`<br>
   ![result for 'find alex david'](images/findAlexDavidResult.png)
+* 
+### <span id="finding-persons-by-relation"></span>Locating persons by relation: `find r/KEYWORD`
+
+Finds persons that have a relation containing the keyword.
+
+Command format: `find r/KEYWORD`
+
+Notes:
+* The input being matched is the same input as the input given in the creation/deletion of relations
+* The search is case-insensitive: e.g `hans` will match `Hans`
+* As relations are bidirectional, searching `Bernice Yu/Alex Yeoh` is equivalent to searching `Alex Yeoh/Bernice Yu`
+* Partial matches are allowed. For example, searching `r` will return results everyone that has a relation containing `r`
+* Example: `r/mother` will find everyone who is a mother, or has a mother
+* Example: `r/Alex Yeoh` will find everyone related to Alex Yeoh and himself
+* Example: `r/a` will find everyone who has the letter `a` in the relation (matching names and/or roles)
 
 ### <span id="relating-persons"></span>Adding or deleting a relation : `relate`
 
@@ -235,6 +251,7 @@ Action     | Format, Examples
 **Delete** | `delete INDEX`<br> e.g., `delete 3`
 **Edit**   | `edit INDEX [n/NAME] [p/PHONE_NUMBER] [e/EMAIL] [a/ADDRESS] [t/TAG] [s/SUBJECT]…​`<br> e.g.,`edit 2 n/James Lee e/jameslee@example.com`
 **Find**   | `find KEYWORD [MORE_KEYWORDS]`<br> e.g., `find James Jake`
+**Find**   | `find r/KEYWORD` e.g., `find r/mother`, `find r/Alex Yeoh/Bernice Yu`
 **List**   | `list`
 **Help**   | `help`
 **Relate** (add) | `relate a\NAME 1/NAME 2/RELATION 1/RELATION 2`<br> e.g., `relate a\Teacher Alex/Bernice Yu/Teacher/Student`
